@@ -1,57 +1,57 @@
-const playlist = [{id: 0, title: "Sweet Caroline", artist: "Neil Diamond", album: "photo"}];
+const arrayPlaylist = [{id: 0, title: "Sweet Caroline", artist: "Neil Diamond", album: "photo"}];
 let id = 1;
 
 
 module.exports ={
 
 showPlaylist: (req,res) => {
-    res.status(202).send(playlist)
+    res.status(202).send(arrayPlaylist)
 },
 
-createPlaylist: (req, res) => {
+createSong: (req, res) => {
     const {title, artist, album} = req.body
     const newSong = {id, title, artist, album}
 
-    playlist.push(newSong)
+    arrayPlaylist.push(newSong)
     id++;
-    res.status(202).send(playlist)
+    res.status(202).send(arrayPlaylist)
 
 },
 
-updatePlaylist: (req, res) => {
+updateSong: (req, res) => {
     const {playlist_id} = req.params
     const {title, artist, album} =req.body
 
-    const index = playlist.findIndex(e=> e.id === +playlist_id)
+    const index = arrayPlaylist.findIndex(e=> e.id === +playlist_id)
     if(index === -1){
         return res.status(404).send("Song id not found")
     }
     const updatedPlaylist = {
         id: +playlist_id,
-        title: title || playlist[index].title,
-        artist: artist || playlist[index].artist,
-        album: album || playlist[index].album
+        title: title || arrayPlaylist[index].title,
+        artist: artist || arrayPlaylist[index].artist,
+        album: album || arrayPlaylist[index].album
     }
 
-    playlist[index] = updatedPlaylist
+    arrayPlaylist[index] = updatedPlaylist
 
-    res.status(202).send(playlist)
+    res.status(202).send(arrayPlaylist)
 
 
 },
 
-deletePlaylist: (req, res) => {
+deleteSong: (req, res) => {
     const {playlist_id} = req.params
 
-    const index = playlist.findIndex(e=> e.id === +playlist_id)
+    const index = arrayPlaylist.findIndex(e=> e.id === +playlist_id)
 
     if(index === -1){
         return res.status(404).send("song not found")
     }
 
-    playlist.splice(index, 1)
+    arrayPlaylist.splice(index, 1)
 
-    res.status(202).send(playlist)
+    res.status(202).send(arrayPlaylist)
     
 }
 

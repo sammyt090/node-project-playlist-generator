@@ -6,9 +6,9 @@ app.use(express.json())
 
 
 app.get("/api/playlist", ctr1.showPlaylist)
-app.post("/api/playlist/", ctr1.createPlaylist)
-app.delete("/api/playlist/:playlist_id", ctr1.deletePlaylist)
-app.put('/api/playlist/:playlist_id', ctr1.updatePlaylist)
+app.post("/api/playlist", ctr1.createSong)
+app.delete("/api/playlist/:playlist_id", ctr1.deleteSong)
+app.put('/api/playlist/:playlist_id', ctr1.updateSong)
 
 
 
