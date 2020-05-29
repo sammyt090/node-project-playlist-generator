@@ -13,7 +13,7 @@ export default class EditPlaylist extends Component{
 
     render() {
         return(<div>
-            <button onClick={() => this.props.deleteSong(this.props.data.id)}>Delete</button>
+            {/* <button onClick={() => this.props.deleteSong(this.props.data.id)}>Delete</button> */}
         </div>)
     }
 }

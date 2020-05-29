@@ -20,7 +20,7 @@ createSong: (req, res) => {
 
 updateSong: (req, res) => {
     const {playlist_id} = req.params
-    const {title, artist, album} =req.body
+    const {newTitle, newArtist, newAlbum} =req.body
 
     const index = arrayPlaylist.findIndex(e=> e.id === +playlist_id)
     if(index === -1){
@@ -28,9 +28,9 @@ updateSong: (req, res) => {
     }
     const updatedPlaylist = {
         id: +playlist_id,
-        title: title || arrayPlaylist[index].title,
-        artist: artist || arrayPlaylist[index].artist,
-        album: album || arrayPlaylist[index].album
+        title: newTitle || arrayPlaylist[index].title,
+        artist: newArtist || arrayPlaylist[index].artist,
+        album: newAlbum || arrayPlaylist[index].album
     }
 
     arrayPlaylist[index] = updatedPlaylist

@@ -1,4 +1,57 @@
 
+import React, { Component } from 'react'
+
+export default class CreateSong extends Component{
+    constructor(){
+        super()
+
+        this.state={
+            title : '',
+            artist : '',
+            album : ''
+        }
+    }
+
+
+    handlechange(event){
+        this.setState({[event.target.name]:event.target.value})
+    }
+
+   
+
+    render(){
+        return(
+           <div className = "trynum2"> 
+            <input onChange ={event=> this.handlechange(event)} placeholder ="Title" name= "title"/>
+            <input onChange ={event=> this.handlechange(event)}placeholder = "Artist" name= "artist"/>
+            <input onChange ={event=> this.handlechange(event)} placeholder = "Album" name= "album"/>
+
+            <button onClick =  {()=> this.props.createSong(this.state.title, this.state.artist, this.state.album)}>Add Song</button>
+            </div>
+
+            
+        )
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React from "react"
 
 // export default function CreateSong(props){

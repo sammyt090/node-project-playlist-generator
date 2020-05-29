@@ -1,5 +1,5 @@
 *{
-  background-color: rgb(10, 10, 12);
+  background-color: rgb(146, 143, 143);
   text-decoration-color: white;
 }
 .App {
@@ -16,9 +16,38 @@ button{
   color: white;
 }
 /* .first-box{
-  border-color: solid white;
-  position: relative;
-  flex: auto;
+  border-style: solid;
+  /* border-color: solid white; */
+
+ /* justify-self: center;
+  align-self: center;
   height: 100px;
   width: 50%;
-} */
+  left: 20%; */
+
+.trynum2{
+  text-emphasis-color: white;
+}
+
+.trynum4{
+  display: flex;
+  position: relative;
+  margin:auto;
+  padding: 10px;
+  border-style: solid;
+  width: 50%;
+  align-items: flex-start;
+  
+}
+.button1{
+  display: flex;
+  position: absolute;
+  right: 0px;
+  
+
+}
+.button2{
+  display: flex;
+  position: absolute;
+  right: 80px;
+}

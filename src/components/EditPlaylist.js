@@ -15,9 +15,9 @@ function EditPlaylist(props) {
   ))
   return (
     <div>
-      <h2>Playlist</h2>
+      
       <div
-        style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
+        // style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}
       >
         {mapPlaylist}
       </div>

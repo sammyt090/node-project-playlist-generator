@@ -16,6 +16,8 @@ class App extends Component {
     }
 
     this.createSong = this.createSong.bind(this)
+    this.deleteSong = this.deleteSong.bind(this)
+    this.saveChange = this.saveChange.bind(this)
     // this.handleAddTask = this.handleAddTask.bind(this);
   
   
@@ -32,7 +34,11 @@ class App extends Component {
     const body = {title, artist, album}
     axios.post('/api/playlist', body).then((res) => {
       this.setState({
-        playlist: res.data
+        playlist: res.data,
+        title: '',
+        artist: '',
+        album: ''
+
       })
     })
   }
@@ -45,7 +51,16 @@ class App extends Component {
     })
   }
 
-  
+  saveChange(id, newTitle, newArtist, newAlbum) {
+    const body = {newTitle, newArtist, newAlbum}
+    console.log(body)
+
+    axios.put(`/api/playlist/${id}`, body).then((res) => {
+      this.setState({
+        playlist: res.data
+      })
+    })
+  }
 
   
 
@@ -58,10 +73,13 @@ class App extends Component {
     console.log(this.state.playlist)
   return (<div className = "App">
     <div><Header/></div>
-    {/* <div><CreateSong createSong= {this.state.CreateSong}
-    playlist= {this.state.playlist}/></div> */}
+    <div><CreateSong createSong= {this.createSong}
+    playlist= {this.state.playlist}/></div>
     <div className = "first-box">
-      <PostSongs playlist = {this.state.playlist}/>
+      <PostSongs deleteSong= {this.deleteSong} 
+      playlist = {this.state.playlist}
+       saveChange = {this.saveChange}
+      />
       {/* <h1>{this.state.playlist[0].title}</h1> */}
 
     </div>
